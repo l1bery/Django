@@ -20,7 +20,7 @@
         </div>
         <div class="col-lg-4 offset-lg-2">
           <div class="right-image">
-            <img src="{% static 'assets/images/images.jpeg' %}" alt="">
+            <img src="{% static 'assets/images/images.jpg' %}" alt="">
 <!--            <span class="price">gay</span>-->
 <!--            <span class="offer">gay</span>-->
           </div>
@@ -90,6 +90,27 @@
             <a href="shop.html">View All</a>
           </div>
         </div>
+        {% if games %}
+          {% for game in games %}
+            <div class="col-lg-3 col-md-6">
+            <div class="item">
+              <div class="thumb">
+                <a href="#"><img src="{{ game.cover_image.url }}" alt="{{ game.title }}"></a>
+              </div>
+              <div class="down-content">
+                <span class="category">
+                  {% for genre in game.genres.all %}
+                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                  {% endfor %}
+                </span>
+                <h4>{{ game.title }}</h4>
+                <a href="#"><i class="fa fa-shopping-bag"></i></a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
@@ -103,6 +124,7 @@
             </div>
           </div>
         </div>
+        {% endif %}
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
@@ -167,6 +189,7 @@
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
+
                 <h4>Assasin Creed</h4>
                 <a href="product-details.html">Explore</a>
             </div>

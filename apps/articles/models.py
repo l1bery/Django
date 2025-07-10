@@ -8,6 +8,10 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Genre'
+        verbose_name_plural = 'Genres'
+
 
 class Game(models.Model):
     title = models.CharField(max_length=200)  # Название игры
