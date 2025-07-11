@@ -33,4 +33,4 @@ def create_review(request):
             return render(request,'create_review.html',{'form': form})
     else:
         form = ReviewForm()
-        return render(request,'create_category.html',{'form':form})
+        return render(request,'create_review.html',{'form':form})

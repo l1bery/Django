@@ -15,10 +15,10 @@ class GameAdmin(admin.ModelAdmin):
 
 
 
-@admin.register(Review)
-class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('user_name', 'game', 'rating', 'created_at')
-    search_fields = ('user_name', 'game__title')
-    list_filter = ('rating', 'created_at', 'game')
-    ordering = ('-created_at',)
-    readonly_fields = ('created_at',)
+# @admin.register(Review)
+# class ReviewAdmin(admin.ModelAdmin):
+#     list_display = ('user_name', 'game', 'rating', 'created_at')
+#     search_fields = ('user_name', 'game__title')
+#     list_filter = ('rating', 'created_at', 'game')
+#     ordering = ('-created_at',)
+#     readonly_fields = ('created_at',)
