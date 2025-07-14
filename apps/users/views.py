@@ -11,9 +11,9 @@ def register_view(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-        else:
-            form = CustomUserCreationForm()
-        return render(request,'register.html',{'form':form})
+    else:
+        form = CustomUserCreationForm()
+    return render(request,'register.html',{'form':form})
 
 
 def login_view(request):
@@ -22,16 +22,17 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(request , username , password)
+            user = authenticate(request=request, username=username, password=password)
+
 
             if user is not None:
                 login(request,user)
                 return  redirect('home')
             else:
                 messages.error(request,'Invalid username or password')
-        else:
-            form = AuthenticationForm(request)
-        return render(request, 'login.html', {'form': form})
+    else:
+        form = AuthenticationForm(request)
+    return render(request, 'login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
