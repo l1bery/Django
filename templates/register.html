@@ -1,17 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
 
-<form method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Submit">
-</form>
+{% block content %}
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Registration</h3>
+          <span class="breadcrumb"><a href="#">Home</a>  >  <a href="#">Register</a>  ></span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-{% if form.errors %}
-<p>Some errors occurred:</p>
-<ul>
-{% for field in form %}
-{% for error in field.errors %}
-<li>{{ error }}</li>
-{% endfor %}
-{% endfor %}
-    {% endif %}
-</ul>
+  <div class="single-product section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="left-image">
+            <img src="{% static 'assets/images/Dota_2.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 align-self-center">
+          <h4>You can register</h4>
+
+          <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" >
+          </form>
+
+          {% if form.errors %}
+            <p>Some errors occurred:</p>
+            <ul>
+              {% for field in form %}
+                {% for error in field.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
