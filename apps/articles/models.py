@@ -19,14 +19,9 @@ class Game(models.Model):
     slug = models.SlugField(max_length=200, unique=True)  # URL (например, "the-witcher-3")
     description = models.TextField()  # Полное описание
     release_date = models.DateField()  # Дата выхода
-    age_rating = models.CharField(max_length=10,)  # Возрастной рейтинг ("E", "T", "M")
-    developer = models.CharField(max_length=100)  # Разработчик
     cover_image = models.ImageField(upload_to='games/covers/')  # Обложка игры
     trailer_url = models.URLField(blank=True)  # Ссылка на трейлер (YouTube)
-
-    # Связи с другими моделями:
-    genres = models.ManyToManyField(Genre)  # Одна игра → несколько жанров
-
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
 class Review(models.Model):
     email = models.EmailField()

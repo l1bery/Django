@@ -6,7 +6,7 @@ from core import settings
 @shared_task
 def send_email_task():
     subject = 'Welcome'
-    message = 'Чурка'
+    message = 'ПОПЛАЧЬ'
     email_from = settings.EMAIL_HOST_USER
-    recipient_list = ['emirrulit123@gmail.com']
+    recipient_list = ['nursulpen@gmail.com']
     send_mail(subject, message, email_from, recipient_list, fail_silently=False,)

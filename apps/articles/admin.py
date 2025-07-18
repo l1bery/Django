@@ -6,12 +6,12 @@ from apps.articles.models import Genre,Game,Review
 
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'release_date', 'developer', 'age_rating')
+    list_display = ('id', 'title', 'release_date','price',)
     search_fields = ('title',)
-    list_filter = ('release_date', 'age_rating', 'developer', 'genres')
+    list_filter = ('release_date',)
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title',)}
-    filter_horizontal = ('genres',)  # удобное отображение жанров
+    # filter_horizontal = ('genres',)  # удобное отображение жанров
 
 
 

@@ -9,7 +9,7 @@ from apps.users.models import CustomUser
 
 @receiver(post_save, sender = CustomUser)
 def send_welcome_email(sender,instance,created,**kwargs):
-    if created:
+    if created and not instance.is_superuser:
         subject = 'Welcome'
         message = f'Чурка по имени {instance.username},'
         email_from = settings.EMAIL_HOST_USER
