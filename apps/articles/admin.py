@@ -7,6 +7,7 @@ from apps.articles.models import Genre,Game,Review
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'release_date','price',)
+    list_display_links = ('id','title')
     search_fields = ('title',)
     list_filter = ('release_date',)
     ordering = ('title',)
